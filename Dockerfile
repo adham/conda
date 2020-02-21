@@ -16,7 +16,8 @@ RUN jupyter labextension install @jupyter-widgets/jupyterlab-manager \
     && jupyter labextension install jupyter-matplotlib \
     && jupyter nbextension enable --py widgetsnbextension
 
-RUN conda update --all --yes \
+RUN jupyter lab build \
+    && conda update --all --yes \
     && conda clean --all -f -y
 
 EXPOSE 8888
